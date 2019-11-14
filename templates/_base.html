@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 {% load i18n %}
-<!-- {% load staticfiles %} -->
+{% load static %}
 {% load bootstrap4 %}
 
 <head>
@@ -15,20 +15,25 @@
 
 <body>
     <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#">{% trans "Аренда машин" %}</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav ml-auto">
-                            <a class="nav-item nav-link" href="#">{% trans "Зарегистрироваться" %}</a>
-                            <a class="nav-item nav-link" href="#">{% trans "Войти" %}</a>
-                            <a class="nav-item nav-link" href="#">{% trans "Выйти" %}</a>
-                        </div>
-                    </div>
-                </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" alt="Logo" height="30" width="30"
+                    class="d-inline-block alighn-top">{% trans "Аренда машин" %}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                    <a class="nav-item nav-link" href="#">Панель управления</a>
+                    <a class="nav-item nav-link" href="{% url 'logout' %}">{% trans "Выйти" %}</a>
+                    {% else %}
+                    <a class="nav-item nav-link" href="{% url 'signup' %}">{% trans "Зарегистрироваться" %}</a>
+                    <a class="nav-item nav-link" href="{% url 'login' %}">{% trans "Войти" %}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
     </header>
 
     <div class="container">
@@ -39,9 +44,9 @@
     <footer class="text-muted">
         <div class="container text-center">
             <p class="float-right">
-                <a href="#">Back to top</a>
+                <a href="#">{% trans "Наверх" %}</a>
             </p>
-            <p>© Аренда Машин {% now 'Y' %}</p>
+            <p>© {% trans "Аренда машин" %} {% now 'Y' %}</p>
         </div>
     </footer>
     {% bootstrap_javascript jquery='full' %}

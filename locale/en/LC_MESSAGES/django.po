@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-14 09:31+0000\n"
+"POT-Creation-Date: 2019-11-14 14:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: cars/models.py:7
+msgid "Название"
+msgstr "Model"
+
+#: cars/models.py:8
+msgid "Год"
+msgstr "Year"
+
+#: cars/models.py:9
+msgid "Дата добавления"
+msgstr "Add Date"
+
+#: cars/models.py:10
+msgid "Владелец"
+msgstr "Owner"
+
+#: cars/models.py:13
+msgid "Автомобиль"
+msgstr "Car"
+
+#: cars/models.py:14
+msgid "Автомобили"
+msgstr "Cars"
+
+#: templates/_base.html:10 templates/_base.html:20 templates/_base.html:49
+msgid "Аренда машин"
+msgstr "Rent a Car"
+
+#: templates/_base.html:29
+msgid "Выйти"
+msgstr "Logout"
+
+#: templates/_base.html:31
+msgid "Зарегистрироваться"
+msgstr "Sign Up"
+
+#: templates/_base.html:32
+msgid "Войти"
+msgstr "Login"
+
+#: templates/_base.html:47
+msgid "Наверх"
+msgstr "Top"
+
 #: templates/home.html:6
 msgid "Домашняя страница"
 msgstr "Homepage"
 
-#: users/models.py:8
+#: users/models.py:11
 msgid "Язык"
 msgstr "Language"

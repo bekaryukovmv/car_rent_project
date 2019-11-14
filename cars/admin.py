@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from modeltranslation.admin import TabbedTranslationAdmin
+
+from .models import Car
+
+class CarAdmin(TabbedTranslationAdmin):
+    pass
+
+admin.site.register(Car, CarAdmin)

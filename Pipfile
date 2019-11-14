@@ -9,6 +9,8 @@ verify_ssl = true
 django = "==2.2.7"
 psycopg2-binary = "==2.8.4"
 django-bootstrap4 = "==1.0.1"
+django-modeltranslation = "==0.14"
+six = "*"
 
 [requires]
 python_version = "3.6"

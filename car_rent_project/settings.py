@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,6 +121,8 @@ LANGUAGES = (
     ('en', 'English'),
 )
 
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -140,3 +143,9 @@ LOCALE_PATHS = (
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

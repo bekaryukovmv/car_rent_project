@@ -26,10 +26,10 @@
                 <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
                     <a class="nav-item nav-link" href="#">Панель управления</a>
-                    <a class="nav-item nav-link" href="{% url 'logout' %}">{% trans "Выйти" %}</a>
+                    <a class="nav-item nav-link" href="{% url 'account_logout' %}">{% trans "Выйти" %}</a>
                     {% else %}
-                    <a class="nav-item nav-link" href="{% url 'signup' %}">{% trans "Зарегистрироваться" %}</a>
-                    <a class="nav-item nav-link" href="{% url 'login' %}">{% trans "Войти" %}</a>
+                    <a class="nav-item nav-link" href="{% url 'account_signup' %}">{% trans "Зарегистрироваться" %}</a>
+                    <a class="nav-item nav-link" href="{% url 'account_login' %}">{% trans "Войти" %}</a>
                     {% endif %}
                 </div>
             </div>

@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Local
     'users.apps.UsersConfig',
+    'cars.apps.CarsConfig',
+    # 3-rd part
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +59,7 @@ ROOT_URLCONF = 'car_rent_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

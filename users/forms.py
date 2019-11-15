@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 # from allauth.account.forms import AddEmailForm
@@ -16,8 +17,9 @@ class CustomUserChangeForm(UserChangeForm):
         model = get_user_model()
         fields = ('email', 'username', 'user_lang',)
 
+class UserFormForEdit(forms.ModelForm):
 
-# class MyCustomSignupForm(SignupForm):
-    
-#     def save(self, request):
-#         user = super(MyCustomSignupForm, self).save(request)
+    class Meta:
+        model = get_user_model()
+        fields = ('first_name', 'last_name', 'email', 'user_lang')
+

@@ -4,7 +4,6 @@ from django.urls import reverse, resolve
 from django.utils.translation import activate
 
 from .forms import CustomUserCreationForm
-from .views import SignupPageView
 # Create your tests here.
 
 class CustomUserTests(TestCase):
@@ -50,7 +49,7 @@ class SignupTests(TestCase):
     def test_signup_template(self):
         self.assertEqual(self.response.status_code, 200)
         self.assertTemplateUsed(self.response, 'account/signup.html')
-        self.assertContains(self.response, 'Sign Up')
+        self.assertContains(self.response, 'Зарегистрироваться')
         self.assertNotContains(
             self.response, 'Hi there! I should not be on the page.')
     

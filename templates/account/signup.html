@@ -1,13 +1,14 @@
 {% extends '_base.html' %}
+{% load i18n %}
 {% load bootstrap4 %}
-{% block title %}Sign Up{% endblock title %}
+{% block title %}{% trans "Зарегистрироваться" %}{% endblock title %}
 {% block content %}
-<h2>Sign Up</h2>
+<h2>{% trans "Зарегистрироваться" %}</h2>
 <form method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
     {% buttons %}
-    <button type="submit" class="btn btn-success">Sign Up</button>
+    <button type="submit" class="btn btn-success">{% trans "Зарегистрироваться" %}</button>
     {% endbuttons %}
 </form>
 {% endblock content %}

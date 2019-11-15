@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Арендовать машину" %}{% endblock title %}
+{% block content %}
+<h3 class="text-center">{% trans "Вы собираетесь арендовать" %} {{ car }}, {{ car.year }} {% trans "года выпуска. Пожалуйста, подтвердите действие!" %}</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <br>
+    <div class="row">
+        <div class="col text-center">
+            <button type="submit" class="btn btn-success">{% trans "Подтвердить" %}</button>
+        </div>
+    </div>
+</form>
+{% endblock content %}

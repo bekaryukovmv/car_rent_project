@@ -5,6 +5,6 @@ from modeltranslation.admin import TabbedTranslationAdmin
 from .models import Car
 
 class CarAdmin(TabbedTranslationAdmin):
-    pass
+    list_display = ("name", "year", "add_date",)
 
 admin.site.register(Car, CarAdmin)

@@ -3,10 +3,21 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<h1>{% trans "Домашняя страница" %}</h1>
 {% if user.is_authenticated %}
-Hi {{ user.email }}!
-{% else %}
-<p>Вы не вошли в систему</p>
+<h3 class="text-center text-muted">{% trans "Здравствуйте" %}, {{ user.username }}!</h3>
 {% endif %}
+<h4 class="text-center">{% blocktrans %}Здесь вы можете выбрать и арендовать автомобиль{% endblocktrans %}</h4>
+<br>
+{% for car in car_list %}
+
+<div class="card">
+        <h5 class="card-header"><b>{% trans "Модель" %}</b>: {{ car.name }}</h5>
+        <div class="card-body">
+          <h5 class="card-title">{% trans "Год выпуска" %} {{ car.year }}</h5>
+          <a href="{% url 'users:add_car' car.id %}" class="btn btn-primary">{% trans "Арендовать" %}</a>
+        </div>
+</div>
+{% endfor %}
+<br>
+{% include "pagination.html" with page=page_obj %}
 {% endblock content %}

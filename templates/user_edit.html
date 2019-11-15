@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+{% block title %}{% trans "Редактировать профиль" %}{% endblock title %}
+{% block content %}
+<div class="container">
+    <h2 class="text-center">{% trans "Редактировать профиль" %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form user_form %}
+        {% buttons %}
+        <button type="submit" class="btn btn-primary">{% trans "Сохранить" %}</button>
+        {% endbuttons %}
+    </form>
+    <br>
+    <a href="{% url 'users:user_delete' user.id %}" class="btn btn-danger">{% trans "Удалить профиль" %}</a>
+</div>
+{% endblock content %}

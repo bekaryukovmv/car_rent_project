@@ -20,3 +20,10 @@ html, body {
 .footer {
     flex: 0 0 auto;
 }
+
+/* pagination */
+
+.pagination {
+    margin: 40px 0;
+    font-weight: bold;
+}

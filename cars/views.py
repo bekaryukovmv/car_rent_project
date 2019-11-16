@@ -1,18 +1,12 @@
 from django.utils import translation
-from django.utils.translation import ugettext as _
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic import CreateView
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
 
 from .models import Car
-
-# Create your views here.
-class HomePageView(LoginRequiredMixin, ListView):
-    queryset = Car.free_cars.all()
-    context_object_name = 'car_list'
-    paginate_by = 5
-    template_name = 'home.html'
 
 
 class CarCreateView(UserPassesTestMixin, CreateView):
@@ -23,3 +17,23 @@ class CarCreateView(UserPassesTestMixin, CreateView):
 
     def test_func(self):
         return self.request.user.is_superuser
+
+
+@login_required
+def home(request):
+
+    user_language = request.user.user_lang
+    translation.activate(user_language)
+    request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+
+    object_list = Car.free_cars.all()
+
+    paginator = Paginator(object_list, 5)
+    page = request.GET.get('page')
+    try:
+        cars = paginator.page(page)
+    except PageNotAnInteger:
+        cars = paginator.page(1)
+    except EmptyPage:
+        cars = paginator.page(paginator.num_pages)
+    return render(request, 'home.html', {'page': page, 'cars': cars})

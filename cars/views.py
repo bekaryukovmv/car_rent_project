@@ -1,3 +1,4 @@
+from django.utils import translation
 from django.utils.translation import ugettext as _
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView
@@ -12,7 +13,6 @@ class HomePageView(LoginRequiredMixin, ListView):
     context_object_name = 'car_list'
     paginate_by = 5
     template_name = 'home.html'
-
 
 
 class CarCreateView(UserPassesTestMixin, CreateView):

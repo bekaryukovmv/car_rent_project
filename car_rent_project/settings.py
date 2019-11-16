@@ -182,7 +182,7 @@ AUTHENTICATION_BACKENDS = (
 ACCOUNT_SESSION_REMEMBER = True
 
 ACCOUNT_FORMS = {
-    'signup': 'users.forms.CustomUserCreationForm',
+    'signup': 'users.forms.MyCustomSignupForm',
 }
 
 ACCOUNT_USERNAME_REQUIRED = False

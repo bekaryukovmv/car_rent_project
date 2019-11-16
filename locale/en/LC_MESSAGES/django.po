@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-15 18:53+0000\n"
+"POT-Creation-Date: 2019-11-16 18:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,54 +20,62 @@ msgstr ""
 
 #: cars/models.py:12
 msgid "Название"
-msgstr ""
+msgstr "Model"
 
 #: cars/models.py:13
 msgid "Год"
-msgstr ""
+msgstr "Year"
 
 #: cars/models.py:14
 msgid "Дата добавления"
-msgstr ""
+msgstr "Add Date"
 
 #: cars/models.py:15
 msgid "Владелец"
-msgstr ""
+msgstr "Owner"
 
 #: cars/models.py:21
 msgid "Автомобиль"
-msgstr ""
+msgstr "Car"
 
 #: cars/models.py:22
 msgid "Автомобили"
-msgstr ""
+msgstr "Cars"
 
-#: templates/_base.html:10 templates/_base.html:21 templates/_base.html:53
+#: templates/_base.html:11 templates/_base.html:22 templates/_base.html:74
 msgid "Аренда машин"
-msgstr ""
+msgstr "Rent a Cars"
 
-#: templates/_base.html:29
+#: templates/_base.html:30
+msgid "Добавить машину"
+msgstr "Add Car"
+
+#: templates/_base.html:34
 msgid "Панель управления"
-msgstr ""
+msgstr "Dashboard"
 
-#: templates/_base.html:30 templates/account/logout.html:4
+#: templates/_base.html:35 templates/account/logout.html:4
 #: templates/account/logout.html:8 templates/account/logout.html:12
 msgid "Выйти"
-msgstr ""
+msgstr "Logout"
 
-#: templates/_base.html:32 templates/account/signup.html:4
+#: templates/_base.html:37 templates/account/signup.html:4
 #: templates/account/signup.html:6 templates/account/signup.html:11
 msgid "Зарегистрироваться"
-msgstr ""
+msgstr "Sign Up"
 
-#: templates/_base.html:33 templates/account/login.html:4
+#: templates/_base.html:38 templates/account/login.html:4
 #: templates/account/login.html:6 templates/account/login.html:11
 msgid "Войти"
-msgstr ""
+msgstr "Log in"
 
-#: templates/_base.html:51
+#: templates/_base.html:57
+msgid "Изменить"
+msgstr "Change"
+
+#: templates/_base.html:72
 msgid "Наверх"
-msgstr ""
+msgstr "Top"
 
 #: templates/account/email/email_confirmation_message.txt:2
 #, python-format
@@ -104,105 +112,124 @@ msgid ""
 msgstr ""
 
 #: templates/account/email_confirm.html:14
-msgid "Confirm"
-msgstr ""
+msgid "Подтвердить"
+msgstr "Confirm"
 
 #: templates/account/email_confirm.html:18
 #, python-format
 msgid ""
+"Срок действия ссылки для подтверждения по электронной почте истек или недействителен. пожалуйста\n"
+"<a href=\"%(email_url)s\">оформите новый запрос подтверждения по электронной почте</a>.\n"
+msgstr ""
 "This e-mail confirmation link expired or is invalid. Please\n"
 "<a href=\"%(email_url)s\">issue a new e-mail confirmation request</a>.\n"
-msgstr ""
-
 #: templates/account/logout.html:9
 msgid "Вы уверены, что хотите выйти?"
-msgstr ""
+msgstr "Are you shure Log Out?"
 
 #: templates/add_car.html:3
 msgid "Арендовать машину"
-msgstr ""
+msgstr "Rent a Car"
 
 #: templates/add_car.html:5
 msgid "Вы собираетесь арендовать"
-msgstr ""
+msgstr "Are you going to rent"
 
 #: templates/add_car.html:5
 msgid "года выпуска. Пожалуйста, подтвердите действие!"
-msgstr ""
+msgstr "Year of release. Please confirm action!"
 
-#: templates/add_car.html:11
-msgid "Подтвердить"
-msgstr ""
+#: templates/create_car.html:4
+msgid "Добавить машину в базу"
+msgstr "Add Car in a Base"
 
 #: templates/dashboard.html:3
 msgid "Профиль"
-msgstr ""
+msgstr "Profile"
 
 #: templates/dashboard.html:9
 msgid "Профиль пользователя"
-msgstr ""
+msgstr "User Profile"
 
 #: templates/dashboard.html:12
 msgid "Имя"
-msgstr ""
+msgstr "First Name"
 
 #: templates/dashboard.html:13
 msgid "Фамилия"
-msgstr ""
+msgstr "Last Name"
 
 #: templates/dashboard.html:16 templates/user_edit.html:4
 #: templates/user_edit.html:7
 msgid "Редактировать профиль"
+msgstr "Edit Profile"
+
+#: templates/dashboard.html:22
+msgid "Арендованные Машины"
+msgstr "Rented Cars"
+
+#: templates/dashboard.html:28
+msgid "Машин не арендовано."
 msgstr ""
 
 #: templates/delete_user.html:3 templates/user_edit.html:16
 msgid "Удалить профиль"
-msgstr ""
+msgstr "Delete Profile"
 
 #: templates/delete_user.html:6
 msgid "Вы уверены, что хотите удалить свою страницу?"
-msgstr ""
+msgstr "Are you sure you want to delete your page?"
 
 #: templates/delete_user.html:13
 msgid "Удалить"
-msgstr ""
+msgstr "Delete"
 
 #: templates/home.html:7
 msgid "Здравствуйте"
-msgstr ""
+msgstr "Hello"
 
 #: templates/home.html:9
 msgid "Здесь вы можете выбрать и арендовать автомобиль"
-msgstr ""
+msgstr "Here you can choose and rent a car"
 
 #: templates/home.html:14
 msgid "Модель"
-msgstr ""
+msgstr "Model"
 
 #: templates/home.html:16
 msgid "Год выпуска"
-msgstr ""
+msgstr "Year of manufactured"
 
 #: templates/home.html:17
 msgid "Арендовать"
-msgstr ""
+msgstr "Rent"
+
+#: templates/home.html:23
+msgid "Свободных машин пока нет"
+msgstr "No cars available yet"
 
 #: templates/user_edit.html:12
 msgid "Сохранить"
-msgstr ""
+msgstr "Save"
 
-#: users/models.py:12
+#: users/models.py:14
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: users/models.py:15
 msgid "Язык"
-msgstr ""
-
-#: users/views.py:66
-#, python-format
-msgid "Подтверждение аренды машины %(car)s."
-msgstr ""
+msgstr "Language"
 
 #: users/views.py:67
+#, python-format
+msgid "Подтверждение аренды машины %(car)s."
+msgstr "Car rental confirmation %(car)s."
+
+#: users/views.py:68
 #, python-format
 msgid ""
 "Поздравляем Вас с успешной арендой автомобиля %(car)s %(year)s. \n"
 "С уважением, команда сайта \"Аренда Авто\""
 msgstr ""
+"Congratulations on your successful car rental. %(car)s %(year)s. \n"
+"Regards, Site Team \"Rent a Car\""

@@ -6,12 +6,12 @@
 
 {% block content %}
 <div class="container">
-    <h2>Создать подборку лучших видео</h2>
+    <h2>{% trans "Добавить машину в базу" %}</h2>
     <form method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
-        <button type="submit" class="btn btn-primary">Создать!</button>
+        <button type="submit" class="btn btn-primary">{% trans "Добавить!" %}</button>
         {% endbuttons %}
     </form>
 </div>

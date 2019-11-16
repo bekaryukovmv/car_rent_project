@@ -8,14 +8,20 @@
 {% endif %}
 <h4 class="text-center">{% blocktrans %}Здесь вы можете выбрать и арендовать автомобиль{% endblocktrans %}</h4>
 <br>
-{% for car in car_list %}
 
+{% for car in car_list %}
 <div class="card">
-        <h5 class="card-header"><b>{% trans "Модель" %}</b>: {{ car.name }}</h5>
-        <div class="card-body">
-          <h5 class="card-title">{% trans "Год выпуска" %} {{ car.year }}</h5>
-          <a href="{% url 'users:add_car' car.id %}" class="btn btn-primary">{% trans "Арендовать" %}</a>
-        </div>
+  <h5 class="card-header"><b>{% trans "Модель" %}</b>: {{ car.name }}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{% trans "Год выпуска" %} {{ car.year }}</h5>
+    <a href="{% url 'users:add_car' car.id %}" class="btn btn-primary">{% trans "Арендовать" %}</a>
+  </div>
+</div>
+{% empty %}
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{% trans "Свободных машин пока нет" %}</h5>
+  </div>
 </div>
 {% endfor %}
 <br>

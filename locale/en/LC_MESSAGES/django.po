@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-15 08:05+0000\n"
+"POT-Creation-Date: 2019-11-15 18:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,49 +18,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: cars/models.py:7
+#: cars/models.py:12
 msgid "Название"
-msgstr "Model"
-
-#: cars/models.py:8
-msgid "Год"
-msgstr "Year"
-
-#: cars/models.py:9
-msgid "Дата добавления"
-msgstr "Add Date"
-
-#: cars/models.py:10
-msgid "Владелец"
-msgstr "Owner"
+msgstr ""
 
 #: cars/models.py:13
-msgid "Автомобиль"
-msgstr "Car"
+msgid "Год"
+msgstr ""
 
 #: cars/models.py:14
-msgid "Автомобили"
-msgstr "Cars"
+msgid "Дата добавления"
+msgstr ""
 
-#: templates/_base.html:10 templates/_base.html:20 templates/_base.html:49
+#: cars/models.py:15
+msgid "Владелец"
+msgstr ""
+
+#: cars/models.py:21
+msgid "Автомобиль"
+msgstr ""
+
+#: cars/models.py:22
+msgid "Автомобили"
+msgstr ""
+
+#: templates/_base.html:10 templates/_base.html:21 templates/_base.html:53
 msgid "Аренда машин"
-msgstr "Rent a Car"
+msgstr ""
 
 #: templates/_base.html:29
+msgid "Панель управления"
+msgstr ""
+
+#: templates/_base.html:30 templates/account/logout.html:4
+#: templates/account/logout.html:8 templates/account/logout.html:12
 msgid "Выйти"
-msgstr "Logout"
+msgstr ""
 
-#: templates/_base.html:31
+#: templates/_base.html:32 templates/account/signup.html:4
+#: templates/account/signup.html:6 templates/account/signup.html:11
 msgid "Зарегистрироваться"
-msgstr "Sign Up"
+msgstr ""
 
-#: templates/_base.html:32
+#: templates/_base.html:33 templates/account/login.html:4
+#: templates/account/login.html:6 templates/account/login.html:11
 msgid "Войти"
-msgstr "Login"
+msgstr ""
 
-#: templates/_base.html:47
+#: templates/_base.html:51
 msgid "Наверх"
-msgstr "Top"
+msgstr ""
 
 #: templates/account/email/email_confirmation_message.txt:2
 #, python-format
@@ -107,10 +114,95 @@ msgid ""
 "<a href=\"%(email_url)s\">issue a new e-mail confirmation request</a>.\n"
 msgstr ""
 
-#: templates/home.html:6
-msgid "Домашняя страница"
-msgstr "Homepage"
+#: templates/account/logout.html:9
+msgid "Вы уверены, что хотите выйти?"
+msgstr ""
 
-#: users/models.py:11
+#: templates/add_car.html:3
+msgid "Арендовать машину"
+msgstr ""
+
+#: templates/add_car.html:5
+msgid "Вы собираетесь арендовать"
+msgstr ""
+
+#: templates/add_car.html:5
+msgid "года выпуска. Пожалуйста, подтвердите действие!"
+msgstr ""
+
+#: templates/add_car.html:11
+msgid "Подтвердить"
+msgstr ""
+
+#: templates/dashboard.html:3
+msgid "Профиль"
+msgstr ""
+
+#: templates/dashboard.html:9
+msgid "Профиль пользователя"
+msgstr ""
+
+#: templates/dashboard.html:12
+msgid "Имя"
+msgstr ""
+
+#: templates/dashboard.html:13
+msgid "Фамилия"
+msgstr ""
+
+#: templates/dashboard.html:16 templates/user_edit.html:4
+#: templates/user_edit.html:7
+msgid "Редактировать профиль"
+msgstr ""
+
+#: templates/delete_user.html:3 templates/user_edit.html:16
+msgid "Удалить профиль"
+msgstr ""
+
+#: templates/delete_user.html:6
+msgid "Вы уверены, что хотите удалить свою страницу?"
+msgstr ""
+
+#: templates/delete_user.html:13
+msgid "Удалить"
+msgstr ""
+
+#: templates/home.html:7
+msgid "Здравствуйте"
+msgstr ""
+
+#: templates/home.html:9
+msgid "Здесь вы можете выбрать и арендовать автомобиль"
+msgstr ""
+
+#: templates/home.html:14
+msgid "Модель"
+msgstr ""
+
+#: templates/home.html:16
+msgid "Год выпуска"
+msgstr ""
+
+#: templates/home.html:17
+msgid "Арендовать"
+msgstr ""
+
+#: templates/user_edit.html:12
+msgid "Сохранить"
+msgstr ""
+
+#: users/models.py:12
 msgid "Язык"
-msgstr "Language"
+msgstr ""
+
+#: users/views.py:66
+#, python-format
+msgid "Подтверждение аренды машины %(car)s."
+msgstr ""
+
+#: users/views.py:67
+#, python-format
+msgid ""
+"Поздравляем Вас с успешной арендой автомобиля %(car)s %(year)s. \n"
+"С уважением, команда сайта \"Аренда Авто\""
+msgstr ""

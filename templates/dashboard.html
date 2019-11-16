@@ -19,11 +19,13 @@
 <br>
 <div class="card" style="width: 18rem; margin-left: 40%;">
     <div class="card-header">
-        <b>Арендованные Машины</b>
+        <b>{% trans "Арендованные Машины" %}</b>
     </div>
     <ul class="list-group list-group-flush">
         {% for car in cars %}
         <li class="list-group-item">{{ car.name }}</li>
+        {% empty %}
+        <li class="list-group-item">{% trans "Машин не арендовано." %}</li>
         {% endfor %}
     </ul>
 </div>

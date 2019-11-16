@@ -9,7 +9,10 @@ class CustomUser(AbstractUser):
         ('ru', 'Русский'),
         ('en', 'English'),
     )
-    user_lang = models.CharField(max_length=2, choices=STATUS_CHOICES, default='ru', verbose_name=_('Язык'))
+
+    email = models.EmailField(unique=True, blank=False)
+    username = models.CharField(max_length=30, unique=False, verbose_name=_('Имя пользователя'))
+    user_lang = models.CharField(max_length=2, choices=STATUS_CHOICES, blank=False, default='ru', verbose_name=_('Язык'))
 
     def get_absolute_url(self):
         return reverse('dashboard', kwargs={'pk': self.pk})

@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'modeltranslation',
+    'modeltranslation',  # for translate models
     # installed
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,13 +39,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    
     # Local
     'users.apps.UsersConfig',
     'cars.apps.CarsConfig',
+    'api.apps.ApiConfig',
+
     # 3-rd part
-    'bootstrap4',
+    'rest_framework',
+    'rest_framework.authtoken',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth',
+    'bootstrap4',
+    'rest_auth.registration',
 ]
 
 MIDDLEWARE = [
@@ -172,15 +180,17 @@ AUTHENTICATION_BACKENDS = (
 )
 
 ACCOUNT_SESSION_REMEMBER = True
+
 ACCOUNT_FORMS = {
     'signup': 'users.forms.CustomUserCreationForm',
 }
 
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
 
+ACCOUNT_ADAPTER = 'api.adapter.CustomAccountAdapter'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -191,6 +201,20 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 DEFAULT_FROM_EMAIL = 'admin@carrent.com'
+
+
+# django rest framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
+REST_AUTH_REGISTER_SERIALIZERS = { 'REGISTER_SERIALIZER': 'api.serializers.CustomRegisterSerializer',}
 
 
 try:

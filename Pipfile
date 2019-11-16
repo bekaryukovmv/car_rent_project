@@ -12,6 +12,8 @@ django-bootstrap4 = "==1.0.1"
 django-modeltranslation = "==0.14"
 six = "*"
 django-allauth = "==0.40.0"
+djangorestframework = "==3.10.3"
+django-rest-auth = "==0.9.5"
 
 [requires]
 python_version = "3.6"

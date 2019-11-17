@@ -1,4 +1,7 @@
+from django.shortcuts import redirect
 from django.contrib.auth import get_user_model
+from django.utils import translation
+
 from rest_framework import generics
 
 
@@ -26,3 +29,12 @@ class CarList(generics.ListAPIView):
     def get_queryset(self):
         queryset = super(CarList, self).get_queryset()
         return queryset.filter(owner__pk=self.kwargs.get('pk'))
+
+
+def change_lang(request):
+    if request.user.is_authenticated:
+        user_language = request.user.user_lang
+        translation.activate(user_language)
+        request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+        return redirect('api')
+    return redirect('home')

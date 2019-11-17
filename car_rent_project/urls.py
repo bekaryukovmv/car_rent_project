@@ -19,6 +19,8 @@ from django.conf.urls.i18n import i18n_patterns
 
 from rest_framework_swagger.views import get_swagger_view
 
+from api.views import change_lang
+
 
 API_TITLE = 'Car Rent API'
 API_DESCRIPTION = 'A Web API for service Car Rent.'
@@ -27,6 +29,7 @@ schema_view = get_swagger_view(title=API_TITLE)
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
+    path('api/', change_lang),
 ]
 
 urlpatterns += i18n_patterns(

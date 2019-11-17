@@ -1,6 +1,9 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
+
 from allauth.account.forms import SignupForm
 
 
@@ -26,10 +29,12 @@ class UserFormForEdit(forms.ModelForm):
 
 
 class MyCustomSignupForm(SignupForm):
-    user_lang = forms.ChoiceField(choices=(('ru', 'Русский'),
-        ('en', 'English'),), required=True, label='Язык')
+    required_css_class = 'required'
+    def __init__(self, *args, **kwargs):
+        super(MyCustomSignupForm, self).__init__(*args, **kwargs)
+        self.fields['user_lang'] = forms.ChoiceField(choices=settings.LANGUAGES, required=True, label=_('Язык'))
 
-    def signup(self, request, user):
+    def save(self, request):
         user_lang = self.cleaned_data['user_lang']
-        user,save()
+        user = super(MyCustomSignupForm, self).save(request)
         return user

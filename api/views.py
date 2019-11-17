@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from rest_framework import generics, permissions
+from rest_framework import generics
 
 
 from .serializers import UserSerializer, CarSerializer
@@ -8,7 +8,7 @@ from cars.models import Car
 # Create your views here.
 
 class UserList(generics.ListCreateAPIView):
-    queryset = get_user_model().objects.all()
+    queryset = get_user_model().objects.all().order_by('pk')
     serializer_class = UserSerializer
 
 

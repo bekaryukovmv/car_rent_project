@@ -17,15 +17,26 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
 
+from rest_framework_swagger.views import get_swagger_view
+
+
+API_TITLE = 'Car Rent API'
+API_DESCRIPTION = 'A Web API for service Car Rent.'
+schema_view = get_swagger_view(title=API_TITLE)
+
+
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
-] + i18n_patterns(
+]
+
+urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('accounts/', include('users.urls')),
-    path('api/v1/', include('api.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/v1/rest-auth/', include('rest_auth.urls')),
     path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('api/v1/', include('api.urls')),
     path('', include('cars.urls')),
+    path('swagger-docs/', schema_view),
 )

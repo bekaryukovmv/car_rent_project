@@ -39,21 +39,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    
-    # Local
-    'users.apps.UsersConfig',
-    'cars.apps.CarsConfig',
-    'api.apps.ApiConfig',
 
     # 3-rd part
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_swagger',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'rest_auth',
-    'bootstrap4',
     'rest_auth.registration',
+    'bootstrap4',
+
+    # Local
+    'users.apps.UsersConfig',
+    'cars.apps.CarsConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -192,13 +193,9 @@ ACCOUNT_UNIQUE_EMAIL = True
 
 ACCOUNT_ADAPTER = 'api.adapter.CustomAccountAdapter'
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'bekaryukovmv'
-EMAIL_HOST_PASSWORD = 'FvtRuMiKjs5MTy'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# Email config
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEFAULT_FROM_EMAIL = 'admin@carrent.com'
 
@@ -212,9 +209,17 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
 REST_AUTH_REGISTER_SERIALIZERS = { 'REGISTER_SERIALIZER': 'api.serializers.CustomRegisterSerializer',}
+
+
+SWAGGER_SETTINGS = {
+    'LOGIN_URL': 'rest_framework:login',
+    'LOGOUT_URL': 'rest_framework:logout',
+}
+
 
 
 try:

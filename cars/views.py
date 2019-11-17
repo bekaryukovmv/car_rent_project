@@ -21,10 +21,11 @@ class CarCreateView(UserPassesTestMixin, CreateView):
 
 @login_required
 def home(request):
-
-    user_language = request.user.user_lang
-    translation.activate(user_language)
-    request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+    # if you need, you can use fixed language preferences
+    
+    # user_language = request.user.user_lang
+    # translation.activate(user_language)
+    # request.session[translation.LANGUAGE_SESSION_KEY] = user_language
 
     object_list = Car.free_cars.all()
 

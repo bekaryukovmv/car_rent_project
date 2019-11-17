@@ -1,5 +1,7 @@
-from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from django.conf import settings
+
+from rest_framework import serializers
 from rest_auth.registration.serializers import RegisterSerializer
 
 from cars.models import Car
@@ -19,8 +21,7 @@ class CarSerializer(serializers.ModelSerializer):
 
 
 class CustomRegisterSerializer(RegisterSerializer):
-    user_lang = serializers.ChoiceField([('ru', 'Русский'),
-        ('en', 'English'),])
+    user_lang = serializers.ChoiceField(settings.LANGUAGES)
 
     def get_cleaned_data(self):
         data_dict = super().get_cleaned_data()

@@ -7,6 +7,7 @@ from rest_framework import generics
 
 from .serializers import UserSerializer, CarSerializer
 from .permissions import IsUserSuperuserOrReadOnly
+from .decorators import ChangeLangMixin
 from cars.models import Car
 # Create your views here.
 
@@ -21,7 +22,7 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
 
 
-class CarList(generics.ListAPIView):
+class CarList(ChangeLangMixin, generics.ListAPIView):
     model = Car
     serializer_class = CarSerializer
     queryset = Car.objects.all()
@@ -31,10 +32,10 @@ class CarList(generics.ListAPIView):
         return queryset.filter(owner__pk=self.kwargs.get('pk'))
 
 
-def change_lang(request):
-    if request.user.is_authenticated:
-        user_language = request.user.user_lang
-        translation.activate(user_language)
-        request.session[translation.LANGUAGE_SESSION_KEY] = user_language
-        return redirect('api')
-    return redirect('home')
+# def change_lang(request):
+#     if request.user.is_authenticated:
+#         user_language = request.user.user_lang
+#         translation.activate(user_language)
+#         request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+#         return redirect('api')
+#     return redirect('home')

@@ -11,4 +11,4 @@ class CustomUser(AbstractUser):
     user_lang = models.CharField(max_length=2, choices=settings.LANGUAGES, blank=False, default='ru', verbose_name=_('Язык'))
 
     def get_absolute_url(self):
-        return reverse('dashboard', kwargs={'pk': self.pk})
+        return reverse('users:dashboard', kwargs={'pk': self.pk})

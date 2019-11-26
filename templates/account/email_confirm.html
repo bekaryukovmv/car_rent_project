@@ -1,7 +1,10 @@
 {% extends '_base.html' %}
+
 {% load i18n %}
 {% load account %}
+
 {% block head_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
+
 {% block content %}
 <h1>{% trans "Confirm E-mail Address" %}</h1>
 {% if confirmation %}
@@ -19,4 +22,5 @@ that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user
 <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.
 {% endblocktrans %}</p>
 {% endif %}
-{% endblock %}
+
+{% endblock content %}

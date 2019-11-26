@@ -29,12 +29,10 @@ class UserFormForEdit(forms.ModelForm):
 
 
 class MyCustomSignupForm(SignupForm):
-    required_css_class = 'required'
-    def __init__(self, *args, **kwargs):
-        super(MyCustomSignupForm, self).__init__(*args, **kwargs)
-        self.fields['user_lang'] = forms.ChoiceField(choices=settings.LANGUAGES, required=True, label=_('Язык'))
+    user_lang = forms.ChoiceField(choices=settings.LANGUAGES, required=True, label=_('Язык'))
 
     def save(self, request):
-        user_lang = self.cleaned_data['user_lang']
         user = super(MyCustomSignupForm, self).save(request)
+        user.user_lang = self.cleaned_data['user_lang']
+        user.save()
         return user

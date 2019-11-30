@@ -9,7 +9,7 @@ class UserFormForEditTest(SimpleTestCase):
 
     def setUp(self):
         self.form = UserFormForEdit()
-    
+
     def test_user_edit_rus_form_fields_label(self):
         activate('ru')
         self.assertTrue(self.form.fields['email'].label == None or self.form.fields['email'].label == 'Email')
@@ -47,7 +47,7 @@ class CustomUserCreationFormTest(SimpleTestCase):
 class CustomUserChangeFormTest(SimpleTestCase):
     def setUp(self):
         self.form = CustomUserChangeForm()
-    
+
     def test_user_change_rus_form_fields_label(self):
         activate('ru')
         self.assertTrue(self.form.fields['email'].label == None or self.form.fields['email'].label == 'Email')
@@ -65,7 +65,7 @@ class MyCustomSignupFormTest(TestCase):
 
     def setUp(self):
         self.form = MyCustomSignupForm()
-    
+
     def test_user_change_rus_form_fields_label(self):
         activate('ru')
         self.assertTrue(self.form.fields['email'].label == None or self.form.fields['email'].label == 'E-mail')
@@ -103,4 +103,3 @@ class MyCustomSignupFormTest(TestCase):
         form = MyCustomSignupForm(data=form_data)
         self.assertFalse(form.is_valid())
         self.assertWarnsMessage(form.errors, f'Выберите корректный вариант. br нет среди допустимых значений.')
-    

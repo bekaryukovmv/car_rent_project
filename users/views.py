@@ -35,11 +35,11 @@ def userform_edit(request, pk):
         user_form = UserFormForEdit(instance=request.user)
         if request.method == 'POST':
             user_form = UserFormForEdit(request.POST, instance=request.user)
-            
+
             if user_form.is_valid():
                 user_form.save()
                 return redirect('users:dashboard', pk=pk)
-        
+
         return render(request, 'user_edit.html', {
             'user_form': user_form})
     else:

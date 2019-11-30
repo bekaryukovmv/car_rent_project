@@ -10,6 +10,7 @@ from django.utils.translation import gettext as _
 
 from .forms import UserFormForEdit
 from cars.models import Car
+from .tasks import order_created
 
 
 class UserDetail(LoginRequiredMixin, generic.DetailView):
@@ -63,13 +64,10 @@ def add_car(request, car_pk):
     user = request.user
     car = get_object_or_404(Car, pk=car_pk)
 
-    subject = _('Подтверждение аренды машины %(car)s.') % {'car': car.name}
-    body = _('Поздравляем Вас с успешной арендой автомобиля %(car)s %(year)s. \nС уважением, команда сайта "Аренда Авто"') % {
-        'car': car.name, 'year': car.year}
-
     if request.method == 'POST':
         car.owner = user
         car.save()
-        send_mail(subject, body, 'carrent@admin.ru', [user.email])
+        # start async task
+        order_created.delay(car_pk, user.email)
         return redirect('users:dashboard', user.id)
     return render(request, 'add_car.html', {'car': car})

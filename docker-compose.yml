@@ -16,6 +16,20 @@ services:
         volumes:
             - postgres_data:/var/lib/postgresql/data/
 
+    rabbitmq:
+        image: "rabbitmq:3-management"
+        hostname: rabbitmq
+        environment:
+            - RABBITMQ_DEFAULT_USER=xxx
+            - RABBITMQ_DEFAULT_PASS=xxx
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+        labels:
+            NAME: "rabbitmq"
+        volumes:
+            - "rabbitmq_data:/data"
 
 volumes:
     postgres_data:
+    rabbitmq_data:

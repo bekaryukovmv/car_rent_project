@@ -10,7 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from __future__ import absolute_import, unicode_literals
 import os
+
+
+# Celery settings
+
+CELERY_BROKER_URL = 'amqp://xxx:xxx@host.docker.internal:5672'
+
+#: Only add pickle to this list if your broker is secured
+#: from unwanted access (see userguide/security.html)
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_CACHE_BACKEND = 'django-cache'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -50,6 +63,7 @@ INSTALLED_APPS = [
     'rest_auth',
     'rest_auth.registration',
     'bootstrap4',
+    'django_celery_results',
 
     # Local
     'users.apps.UsersConfig',

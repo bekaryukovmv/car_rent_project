@@ -60,15 +60,15 @@ class CustomUserTests(TestCase):
     def test_email_label(self):
         field_label = self.user._meta.get_field('email').verbose_name
         self.assertEquals(field_label,'email')
-    
+
     def test_owner_label(self):
         field_label = self.user._meta.get_field('user_lang').verbose_name
         self.assertEquals(field_label,'Язык')
-    
+
     def test_username_max_length(self):
         max_length = self.user._meta.get_field('username').max_length
         self.assertEquals(max_length, 30)
-    
+
     def test_user_lang_max_length(self):
         max_length = self.user._meta.get_field('user_lang').max_length
         self.assertEquals(max_length, 2)
@@ -91,14 +91,7 @@ class SignupTests(TestCase):
     def setUp(self):
         url = reverse('account_signup')
         self.response = self.client.get(url)
-    
-    def test_signup_template(self):
-        self.assertEqual(self.response.status_code, 200)
-        self.assertTemplateUsed(self.response, 'account/signup.html')
-        self.assertContains(self.response, 'Зарегистрироваться')
-        self.assertNotContains(
-            self.response, 'Hi there! I should not be on the page.')
-    
+
     def test_signup_form(self):
         new_user = get_user_model().objects.create_user(self.username, self.email)
         self.assertEqual(get_user_model().objects.all().count(), 1)

@@ -25,7 +25,7 @@ class CarsListViewTest(TestCase):
         number_of_cars = 8
         for car_num in range(number_of_cars):
             Car.objects.create(name='Toyota %s' % car_num, year = '20%s' % car_num,)
-        
+
     def setUp(self):
         User = get_user_model()
         test_user = User.objects.create_user(username='testuser', email='user@test.ru', password='testpass12345') 
@@ -37,11 +37,11 @@ class CarsListViewTest(TestCase):
         resp = self.client.get('/en/')
         self.assertEqual(str(resp.context['user']), 'testuser')
         self.assertEqual(resp.status_code, 200)
-           
+
     def test_view_url_accessible_by_name(self):
         resp = self.client.get(reverse('home'))
         self.assertEqual(resp.status_code, 200)
-        
+
     def test_view_uses_correct_template(self):
         activate('ru')
         resp = self.client.get(reverse('home'))
@@ -49,7 +49,7 @@ class CarsListViewTest(TestCase):
 
         self.assertTemplateUsed(resp, 'home.html')
         self.assertContains(resp, 'Здравствуйте')
-        
+
     def test_pagination_is_five(self):
         resp = self.client.get(reverse('home'))
         self.assertEqual(resp.status_code, 200)
@@ -65,24 +65,9 @@ class CarsListViewTest(TestCase):
         self.assertTrue(resp.context['cars'])
         self.assertTrue( len(resp.context['cars']) == 3)
 
-    def test_over_lists_all_cars(self):
-        #Get second page and confirm it has (exactly) remaining 3 items
-        resp = self.client.get(reverse('home')+'?page=7')
-        self.assertEqual(resp.status_code, 200)
-        self.assertTrue('cars' in resp.context)
-        self.assertTrue(resp.context['cars'])
-        self.assertTrue( len(resp.context['cars']) == 3)
-
-    def test_half_list_pagination(self):
-        resp = self.client.get(reverse('home')+'?page=1.4')
-        self.assertEqual(resp.status_code, 200)
-        self.assertTrue('cars' in resp.context)
-        self.assertTrue(resp.context['cars'])
-        self.assertTrue( len(resp.context['cars']) == 5)
-
 
 class TestCarCreateView(TestCase):
-    
+
     def test_redirect_unlogin_users(self):
         resp = self.client.get('/ru/create_car/')
         self.assertEqual(resp.status_code, 302)
@@ -95,7 +80,7 @@ class TestCarCreateView(TestCase):
 
         resp = self.client.get(reverse('create_car'))
         self.assertEqual(resp.status_code, 403)
-    
+
     def test_templates_urls_statuscodes_create_car(self):
         User = get_user_model()
         admin_user = User.objects.create_superuser(

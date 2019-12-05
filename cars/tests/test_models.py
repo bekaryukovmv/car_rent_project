@@ -18,7 +18,7 @@ class CarModelTestClass(TestCase):
             name='Нива',
             year='2008',
         )
-    
+
     def setUp(self):
         self.car = Car.objects.get(id=1)
         User = get_user_model()
@@ -36,7 +36,7 @@ class CarModelTestClass(TestCase):
     def test_year_label(self):
         field_label = self.car._meta.get_field('year').verbose_name
         self.assertEquals(field_label,'Год')
-    
+
     def test_owner_label(self):
         field_label = self.car._meta.get_field('owner').verbose_name
         self.assertEquals(field_label,'Владелец')

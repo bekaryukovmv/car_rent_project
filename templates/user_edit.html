@@ -7,7 +7,7 @@
     <h2 class="text-center">{% trans "Редактировать профиль" %}</h2>
     <form method="post">
         {% csrf_token %}
-        {% bootstrap_form user_form %}
+        {% bootstrap_form form %}
         {% buttons %}
         <button type="submit" class="btn btn-primary">{% trans "Сохранить" %}</button>
         {% endbuttons %}
